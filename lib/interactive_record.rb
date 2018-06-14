@@ -64,7 +64,7 @@ class InteractiveRecord
     attribute = self.column_names.select {|col_name| col_name == attribute_hash.keys[0].to_s}
     sql = <<-SQL
       SELECT * FROM #{self.table_name}
-      WHERE #{attribute[0]} = ?"
+      WHERE #{attribute[0]} = ?
     SQL
     
     DB[:conn].execute(sql, attribute_hash[attribute_hash.keys[0]])
